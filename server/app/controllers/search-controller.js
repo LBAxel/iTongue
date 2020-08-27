@@ -12,7 +12,9 @@ module.exports = {
 
       switch (type) {
         case "all":
-          results = await searchDatamapper.findAll(query);
+          const users = await searchDatamapper.findUsers(query)
+          const irecords = await searchDatamapper.findRecords(query)
+          results = { users, irecords };
           break;
         case "user":
           results = await searchDatamapper.findUsers(query);

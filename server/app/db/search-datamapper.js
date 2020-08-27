@@ -1,5 +1,38 @@
 const client = require("./index");
 
+const benchmarkQueryTime = async query => {
+  
+  const repeats = 1000; // Number of requests
+
+  let avgTime = 0;
+  let diff;
+  let start;
+  let end;
+
+  // If any error while trying one request, return error.
+  try {
+    await client.query(query);
+  } catch (error) {
+    console.log(error)
+    return error;
+  }
+
+  // Launch requests
+  for (i = 0; i < repeats; i++) {
+    start = new Date().getTime();
+    await client.query(query);
+    end = new Date().getTime();
+
+    diff = end - start;
+    avgTime += diff;
+  }
+  
+  // Format result and return
+  const result = (avgTime / 1000) + " seconds";
+  console.log(`Average time for ${repeats} request: `, result);
+  return result;
+}
+
 module.exports = {
   /**
    * Search users and records matching with given expression
@@ -31,7 +64,8 @@ module.exports = {
       text: "SELECT * FROM find_users($1)",
       values: [expression]
     };
-
+    
+    // return await benchmarkQueryTime(query);
     const result = await client.query(query);
     return result.rows;
 
@@ -50,7 +84,9 @@ module.exports = {
       values: [expression]
     };
 
+    // return await benchmarkQueryTime(query);
     const result = await client.query(query);
     return result.rows;
   },
+
 };
