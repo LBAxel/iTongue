@@ -7,6 +7,7 @@ const userDatamapper = require("../db/user-datamapper");
 const recordDatamapper = require("../db/record-datamapper");
 const authUtils = require("../utils/auth-utils");
 const fileUtils = require("../utils/file-utils");
+const mail = require("../services/mailing/emailManager");
 
 const fsPromises = fs.promises;
 
@@ -59,6 +60,8 @@ module.exports = {
         lastname,
         slug: userSlug
       });
+
+      mail.send("welcome", { email, firstname });
 
       res.status(201).json({ data: result });
     } catch (err) {

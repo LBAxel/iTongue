@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node ./www",
     "dev": "nodemon ./www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mail": "node ./app/services/mailing/server.js",
+    "consume": "nodemon ./app/services/mailing/consumers/welcome.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,8 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "node-fetch": "^2.6.0",
+    "nodemailer": "^6.4.11",
+    "nodemailer-mailgun-transport": "^2.0.0",
     "pg": "^8.3.0",
     "redis": "^3.0.2",
     "slugify": "^1.4.5",
