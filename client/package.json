@@ -9,7 +9,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "audio-recorder-polyfill": "^0.3.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "creepyface": "^7.4.2",
     "destyle.css": "^1.0.15",
     "emailjs-com": "^2.6.3",
