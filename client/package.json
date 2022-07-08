@@ -18,7 +18,7 @@
     "get-blob-duration": "^1.1.2",
     "magic.css": "^1.4.6",
     "mic-recorder-to-mp3": "^2.2.2",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "pure-react-carousel": "^1.27.1",
